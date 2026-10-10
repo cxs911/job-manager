@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求职管家 - 个人求职管理系统</title>
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <!-- Vue Router -->
+    <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.prod.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" type="image/x-icon">
+</head>
+<body>
+    <div id="app">
+        <!-- 全局布局 -->
+        <div class="app-layout">
+            <!-- 侧边栏 -->
+            <sidebar-component :collapsed="sidebarCollapsed"></sidebar-component>
+
+            <!-- 主区域 -->
+            <div class="main-area" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
+                <!-- 顶部栏 -->
+                <top-bar @toggle-sidebar="sidebarCollapsed = !sidebarCollapsed" @add-job="openAddJob"></top-bar>
+
+                <!-- 内容区域 -->
+                <div class="content-area">
+                    <router-view @add-job="openAddJob"></router-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新增/编辑职位弹窗 -->
+        <job-form ref="jobFormRef" @saved="onJobSaved"></job-form>
+    </div>
+
+    <!-- 应用脚本 -->
+    <script src="js/db.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/components/Sidebar.js"></script>
+    <script src="js/components/TopBar.js"></script>
+    <script src="js/components/JobForm.js"></script>
+    <script src="js/components/Dashboard.js"></script>
+    <script src="js/components/JobList.js"></script>
+    <script src="js/components/JobDetail.js"></script>
+    <script src="js/components/TagManager.js"></script>
+    <script src="js/components/DataManager.js"></script>
+    <script src="js/components/InterviewNotes.js"></script>
+    <script src="js/components/CategoryManage.js"></script>
+    <script src="js/components/ResumeManage.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# 依赖（本项目通过 CDN 引入，通常无本地依赖）
+node_modules/
+package-lock.json
+
+# 个人求职数据备份（重要！不要把导出的数据提交上来）
+求职管家_*.json
+求职管家_*.csv
+*.bak
+backup/
+backups/
+data/
+exports/
+
+# 日志
+*.log
